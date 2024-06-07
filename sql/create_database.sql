@@ -34,7 +34,7 @@ CREATE TABLE emp_funcoes (
 );
 
 -- Inserir alguns dados de exemplo na tabela Funcoes'
-INSERT INTO emp_funcoes (descricao) VALUES
+INSERT INTO emp_funcoes (nm_funcao) VALUES
 ('GERENTE'),
 ('DESENVOLVEDOR'),
 ('ANALISTA'),

@@ -33,6 +33,11 @@ object FrmPrincipal: TFrmPrincipal
       Caption = '&Sair'
       OnExecute = actSairExecute
     end
+    object actFuncao: TAction
+      Category = 'Cadastros'
+      Caption = '&Fun'#231#227'o'
+      OnExecute = actFuncaoExecute
+    end
   end
   object mmMenu: TMainMenu
     Left = 192
@@ -41,6 +46,9 @@ object FrmPrincipal: TFrmPrincipal
       Caption = '&Cadastros'
       object mniCliente: TMenuItem
         Action = actDepartamento
+      end
+      object Funo1: TMenuItem
+        Action = actFuncao
       end
       object mniFornecedor: TMenuItem
         Action = actEmpregado

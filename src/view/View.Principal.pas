@@ -17,10 +17,13 @@ type
     mniCliente: TMenuItem;
     mniFornecedor: TMenuItem;
     mniSair: TMenuItem;
+    actFuncao: TAction;
+    Funo1: TMenuItem;
     procedure actDepartamentoExecute(Sender: TObject);
     procedure actSairExecute(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure actFuncaoExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -33,7 +36,7 @@ var
 implementation
 
 uses
-  View.Departamento;
+  View.Departamento, View.Funcao;
 
 
 {$R *.dfm}
@@ -49,6 +52,20 @@ begin
   finally
     if FrmDepartamento <> nil then
       FreeAndNil(FrmDepartamento);
+  end;
+end;
+
+procedure TFrmPrincipal.actFuncaoExecute(Sender: TObject);
+var
+  FrmFuncao: TFrmCadastroFuncao;
+begin
+  FrmFuncao := TFrmCadastroFuncao.Create(nil);
+
+  try
+    FrmFuncao.ShowModal;
+  finally
+    if FrmFuncao <> nil then
+      FreeAndNil(FrmFuncao);
   end;
 end;
 

@@ -19,6 +19,20 @@ type
     function Excluir(AValue: Integer): IControllerDepartamento;
   end;
 
+  IControllerFuncao = interface
+    ['{52C49259-4292-47CE-88B0-A92D5B94BC54}']
+    function Id_Emp_Funcao: Integer; overload;
+    function Id_Emp_Funcao(AValue: Integer): IControllerFuncao overload;
+    function Nm_Funcao: string; overload;
+    function Nm_Funcao(AValue: string): IControllerFuncao overload;
+
+    function BuscarPorId(AValue: Integer): IControllerFuncao;
+    function ListarTodos: IControllerFuncao;
+    function Salvar: IControllerFuncao;
+    function Alterar: IControllerFuncao;
+    function Excluir(AValue: Integer): IControllerFuncao;
+  end;
+
 implementation
 
 end.

@@ -5,11 +5,12 @@ interface
 uses
   System.SysUtils, System.Generics.Collections,
 
+  Data.DB,
   FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.VCLUI.Wait,
-  Data.DB, FireDAC.Comp.Client, FireDAC.DApt,
-  FireDAC.Phys.PgDef, FireDAC.Phys.Pg,
+  FireDAC.Comp.Client, FireDAC.DApt,
+  FireDAC.Phys.PGDef, FireDAC.Phys.PG,
 
   UntConexao, Model.Interfaces, Dao.Interfaces;
 
@@ -59,8 +60,8 @@ function TDAODepartamento.BuscarPorId(AValue: Integer): IDAODepartamento;
 begin
   FDQryDepartamento.Close;
   FDQryDepartamento.SQL.Clear;
-  FDQryDepartamento.SQL.Add('SELECT d.id_departamento, d.nm_departamento, d.local');
-  FDQryDepartamento.SQL.Add('  FROM departamentos d');
+  FDQryDepartamento.SQL.Add('SELECT d.id_departamento, d.nm_departamento, d.local ');
+  FDQryDepartamento.SQL.Add('  FROM departamentos d ');
   FDQryDepartamento.SQL.Add(' WHERE d.id_departamento = :idDepartamento');
   FDQryDepartamento.ParamByName('idDepartamento').AsInteger := AValue;
   FDQryDepartamento.Open;
@@ -76,9 +77,9 @@ begin
   try
     FDQryDepartamento.Close;
     FDQryDepartamento.SQL.Clear;
-    FDQryDepartamento.SQL.Add('SELECT d.id_departamento, d.nm_departamento, d.local');
+    FDQryDepartamento.SQL.Add('SELECT d.id_departamento, d.nm_departamento, d.local ');
     FDQryDepartamento.SQL.Add('  FROM departamentos d');
-    FDQryDepartamento.SQL.Add('ORDER BY d.id_departamento');
+    FDQryDepartamento.SQL.Add(' ORDER BY d.id_departamento');
     FDQryDepartamento.Open;
   except on E: Exception do
     raise Exception.Create('Error ao listar: ' + E.Message);
@@ -88,12 +89,18 @@ end;
 function TDAODepartamento.Salvar(ADepartamento: IModelDepartamento): IDAODepartamento;
 begin
   Result := Self;
-  FDQryDepartamento.Close;
-  FDQryDepartamento.SQL.Clear;
-  FDQryDepartamento.SQL.Add('INSERT INTO departamentos (nm_departamento)');
-  FDQryDepartamento.SQL.Add('VALUES (:nm_departamento)');
-  FDQryDepartamento.ParamByName('nm_departamento').AsString := ADepartamento.nm_departamento;
-  FDQryDepartamento.ExecSQL;
+
+  try
+    FDQryDepartamento.Close;
+    FDQryDepartamento.SQL.Clear;
+    FDQryDepartamento.SQL.Add('INSERT INTO departamentos (nm_departamento, local) ');
+    FDQryDepartamento.SQL.Add('VALUES (:nm_departamento, :local)');
+    FDQryDepartamento.ParamByName('nm_departamento').AsString := ADepartamento.Nm_Departamento;
+    FDQryDepartamento.ParamByName('local').AsString := ADepartamento.Local;
+    FDQryDepartamento.ExecSQL;
+  except on E: Exception do
+    raise Exception.Create('Error ao salvar: ' + E.Message);
+  end;
 end;
 
 function TDAODepartamento.Alterar(ADepartamento: IModelDepartamento): IDAODepartamento;
@@ -103,9 +110,12 @@ begin
   try
     FDQryDepartamento.Close;
     FDQryDepartamento.SQL.Clear;
-    FDQryDepartamento.SQL.Add('UPDATE departamentos');
-    FDQryDepartamento.SQL.Add('   SET nm_departamento = nm_departamento');
-    FDQryDepartamento.SQL.Add('WHERE id_departamento = :idDepartamento');
+    FDQryDepartamento.SQL.Add('UPDATE departamentos ');
+    FDQryDepartamento.SQL.Add('   SET nm_departamento = :nm_departamento, ');
+    FDQryDepartamento.SQL.Add('       local = :local ');
+    FDQryDepartamento.SQL.Add(' WHERE id_departamento = :idDepartamento');
+    FDQryDepartamento.ParamByName('nm_departamento').AsString := ADepartamento.Nm_Departamento;
+    FDQryDepartamento.ParamByName('local').AsString := ADepartamento.Local;
     FDQryDepartamento.ParamByName('idDepartamento').AsInteger := ADepartamento.Id_Departamento;
     FDQryDepartamento.ExecSQL;
   except on E: Exception do
@@ -120,7 +130,7 @@ begin
   try
     FDQryDepartamento.Close;
     FDQryDepartamento.SQL.Clear;
-    FDQryDepartamento.SQL.Add('DELETE FROM departamentos');
+    FDQryDepartamento.SQL.Add('DELETE FROM departamentos ');
     FDQryDepartamento.SQL.Add('  WHERE id_departamento = :idDepartamento');
     FDQryDepartamento.ParamByName('idDepartamento').AsInteger := AValue;
     FDQryDepartamento.ExecSQL;

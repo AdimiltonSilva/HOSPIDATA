@@ -14,6 +14,15 @@ type
     function Excluir(AValue: Integer): IDAODepartamento;
   end;
 
+  IDAOFuncao = interface
+    ['{8D8FA5B9-AA5C-4DF8-BDA0-95299A82E2BE}']
+    function BuscarPorId(AValue: Integer): IDAOFuncao;
+    function ListarTodos: IDAOFuncao;
+    function Salvar(AFuncao: IModelFuncao): IDAOFuncao;
+    function Alterar(AFuncao: IModelFuncao): IDAOFuncao;
+    function Excluir(AValue: Integer): IDAOFuncao;
+  end;
+
 implementation
 
 end.
