@@ -54,10 +54,12 @@ A estrutura sugerida para o projeto é a seguinte: <br/>
 │   |   ├── UntConexao.pas
 │   |   ├── Dao.Interfaces.pas
 │   |   ├── Dao.Departamento.pas
+│   |   ├── Dao.Funcao.pas
 │   |   └── Dao.Empregado.pas
 │   ├── /model # Pasta para arquivos de modelo 
 │   |   ├── Model.Interfaces.pas
 │   |   ├── Model.Departamento.pas
+│   |   ├── Model.Funcao.pas
 │   |   ├── Model.Pessoa.pas
 │   |   └── Model.Empregado.pas
 │   ├── /view # Pasta para arquivos de interface com o usuário 
@@ -67,6 +69,8 @@ A estrutura sugerida para o projeto é a seguinte: <br/>
 │   |   ├── View.Modelo.pas
 │   |   ├── View.Departamento.dfm
 │   |   ├── View.Departamento.pas
+│   |   ├── View.Funcao.dfm
+│   |   ├── View.Funcao.pas
 │   |   ├── View.Empregado.dfm
 │   |   ├── View.Empregado.pas
 │   |   ├── View.Listagem.dfm
@@ -74,8 +78,10 @@ A estrutura sugerida para o projeto é a seguinte: <br/>
 │   └── /controller # Pasta para arquivos do controlador 
 │       ├── Controller.Interfaces.pas
 │       ├── Controller.Departamento.pas
+│       ├── Controller.Funcao.pas
 │       └── Controller.Empregado.pas
 ├── /docs # Documentação do projeto 
+│   ├── LICENSE
 │   └── README.md # Este arquivo 
 └── /sql # Scripts SQL para criação do banco de dados 
     └── create_database.sql 
