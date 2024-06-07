@@ -50,7 +50,7 @@ A estrutura sugerida para o projeto é a seguinte: <br/>
 ├── hospidata.dproj
 ├── hospidata.res
 ├── /src
-│   ├── /dao
+│   ├── /dao # Pasta para arquivos de acesso ao banco de dados 
 │   |   ├── UntConexao.pas
 │   |   ├── Dao.Interfaces.pas
 │   |   ├── Dao.Departamento.pas
@@ -71,7 +71,7 @@ A estrutura sugerida para o projeto é a seguinte: <br/>
 │   |   ├── View.Empregado.pas
 │   |   ├── View.Listagem.dfm
 │   |   └── View.Listagem.pas
-│   └── /controller
+│   └── /controller # Pasta para arquivos do controlador 
 │       ├── Controller.Interfaces.pas
 │       ├── Controller.Departamento.pas
 │       └── Controller.Empregado.pas
@@ -80,4 +80,12 @@ A estrutura sugerida para o projeto é a seguinte: <br/>
 └── /sql # Scripts SQL para criação do banco de dados 
     └── create_database.sql 
 ```
+## Licença
+
+Este projeto é licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
 **Nota**: Este projeto é uma avaliação de conhecimento e não deve ser utilizado em ambientes de produção.
+
+## Contato
+
+Para mais informações, entre em contato com adimilton@gmail.com (81)98837-4804
