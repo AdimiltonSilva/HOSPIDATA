@@ -35,9 +35,9 @@ CREATE TABLE emp_funcoes (
 
 -- Inserir alguns dados de exemplo na tabela Funcoes'
 INSERT INTO emp_funcoes (nm_funcao) VALUES
-('GERENTE'),
+('GERENTE DE PROJETOS'),
 ('DESENVOLVEDOR'),
-('ANALISTA'),
+('ANALISTA DE MARKETING'),
 ('SUPORTE TÉCNICO');
 
 -- Criar a tabela de Empregados
@@ -61,7 +61,7 @@ CREATE TABLE empregados (
 -- Inserir alguns dados de exemplo na tabela de Empregados
 INSERT INTO empregados (cod_departamento, cod_emp_funcao, nm_empregado, nm_funcao, data_admissao, salario, comissao) VALUES
 (1, 1, 'JOÃO SILVA', 'GERENTE DE PROJETOS', '2020-01-15', 7500.00, 500.00),
-(2, 2, 'MARIA SOUZA', 'DESENVOLVEDORA', '2019-03-22', 5500.00, 300.00),
+(2, 2, 'MARIA SOUZA', 'DESENVOLVEDOR', '2019-03-22', 5500.00, 300.00),
 (3, 3, 'CARLOS PEREIRA', 'ANALISTA DE MARKETING', '2021-07-10', 4000.00, 200.00),
 (4, 4, 'ANA OLIVEIRA', 'SUPORTE TÉCNICO', '2018-11-30', 3500.00, 100.00);
 

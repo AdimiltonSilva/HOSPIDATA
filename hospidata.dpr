@@ -15,7 +15,11 @@ uses
   Dao.Funcao in 'src\dao\Dao.Funcao.pas',
   Controller.Funcao in 'src\controller\Controller.Funcao.pas',
   Model.Funcao in 'src\model\Model.Funcao.pas',
-  View.Funcao in 'src\view\View.Funcao.pas' {FrmCadastroFuncao};
+  View.Funcao in 'src\view\View.Funcao.pas' {FrmCadastroFuncao},
+  Dao.Empregado in 'src\dao\Dao.Empregado.pas',
+  Controller.Empregado in 'src\controller\Controller.Empregado.pas',
+  Model.Empregado in 'src\model\Model.Empregado.pas',
+  View.Empregado in 'src\view\View.Empregado.pas' {FrmCadastroEmpregado};
 
 {$R *.res}
 
@@ -24,5 +28,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TFrmPrincipal, FrmPrincipal);
   Application.CreateForm(TFrmCadastroFuncao, FrmCadastroFuncao);
+  Application.CreateForm(TFrmCadastroEmpregado, FrmCadastroEmpregado);
   Application.Run;
 end.

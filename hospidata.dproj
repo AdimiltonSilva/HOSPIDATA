@@ -155,6 +155,13 @@
             <Form>FrmCadastroFuncao</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="src\dao\Dao.Empregado.pas"/>
+        <DCCReference Include="src\controller\Controller.Empregado.pas"/>
+        <DCCReference Include="src\model\Model.Empregado.pas"/>
+        <DCCReference Include="src\view\View.Empregado.pas">
+            <Form>FrmCadastroEmpregado</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -26,6 +26,7 @@ type
 
       class function New(var ADataSource: TDataSource): IDAODepartamento;
       function BuscarPorId(AValue: Integer): IDAODepartamento;
+      function BuscarIdPorDepartamento(AValue: string): IDAODepartamento;
       function ListarTodos: IDAODepartamento;
       function Salvar(ADepartamento: IModelDepartamento): IDAODepartamento;
       function Alterar(ADepartamento: IModelDepartamento): IDAODepartamento;
@@ -68,6 +69,20 @@ begin
 
   if FDQryDepartamento.IsEmpty then
     raise Exception.Create('Departamento não encontrado');
+end;
+
+function TDAODepartamento.BuscarIdPorDepartamento(AValue: string): IDAODepartamento;
+begin
+  FDQryDepartamento.Close;
+  FDQryDepartamento.SQL.Clear;
+  FDQryDepartamento.SQL.Add('SELECT d.id_departamento ');
+  FDQryDepartamento.SQL.Add('  FROM departamentos d ');
+  FDQryDepartamento.SQL.Add(' WHERE d.nm_departamento = :nmDepartamento');
+  FDQryDepartamento.ParamByName('nmDepartamento').AsString := AValue;
+  FDQryDepartamento.Open;
+
+  if FDQryDepartamento.IsEmpty then
+    raise Exception.Create('Departamento não existe.');
 end;
 
 function TDAODepartamento.ListarTodos: IDAODepartamento;

@@ -27,6 +27,7 @@ type
       function Nm_Funcao(AValue: string): IModelFuncao overload;
 
       function BuscarPorId(Avalue: Integer): IModelFuncao;
+      function BuscarIdPorFuncao(AValue: string): IModelFuncao overload;
       function ListarTodos: IModelFuncao;
       function Salvar: IModelFuncao;
       function Alterar: IModelFuncao;
@@ -80,6 +81,12 @@ function TModelFuncao.BuscarPorId(Avalue: Integer): IModelFuncao;
 begin
   Result := Self;
   FDAOFuncao.BuscarPorId(AValue);
+end;
+
+function TModelFuncao.BuscarIdPorFuncao(AValue: string): IModelFuncao;
+begin
+  Result := Self;
+  FDAOFuncao.BuscarIdPorFuncao(AValue);
 end;
 
 function TModelFuncao.ListarTodos: IModelFuncao;

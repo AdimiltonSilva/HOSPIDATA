@@ -13,6 +13,7 @@ type
     function Local(AValue: string): IModelDepartamento overload;
 
     function BuscarPorId(AValue: Integer): IModelDepartamento;
+    function BuscarIdPorDepartamento(AValue: string): IModelDepartamento;
     function ListarTodos: IModelDepartamento;
     function Salvar: IModelDepartamento;
     function Alterar: IModelDepartamento;
@@ -27,10 +28,37 @@ type
     function Nm_Funcao(AValue: string): IModelFuncao; overload;
 
     function BuscarPorId(AValue: Integer): IModelFuncao;
+    function BuscarIdPorFuncao(AValue: string): IModelFuncao;
     function ListarTodos: IModelFuncao;
     function Salvar: IModelFuncao;
     function Alterar: IModelFuncao;
     function Excluir(AValue: Integer): IModelFuncao;
+  end;
+
+  IModelEmpregado = interface
+    ['{84AA2E1A-2584-4F30-9EF8-EC165B3B312E}']
+    function Id_Empregado: Integer; overload;
+    function Id_Empregado(AValue: Integer): IModelEmpregado; overload;
+    function Cod_Departamento: Integer; overload;
+    function Cod_Departamento(AValue: Integer): IModelEmpregado; overload;
+    function Cod_Emp_Funcao: Integer; overload;
+    function Cod_Emp_Funcao(AValue: Integer): IModelEmpregado; overload;
+    function Nm_Empregado: string; overload;
+    function Nm_Empregado(AValue: string): IModelEmpregado; overload;
+    function Nm_Funcao: string; overload;
+    function Nm_Funcao(AValue: string): IModelEmpregado; overload;
+    function Data_Admissao: TDate; overload;
+    function Data_Admissao(AValue: TDate): IModelEmpregado; overload;
+    function Salario: Currency; overload;
+    function Salario(AValue: Currency): IModelEmpregado; overload;
+    function Comissao: Currency; overload;
+    function Comissao(AValue: Currency): IModelEmpregado; overload;
+
+    function BuscarPorId(AValue: Integer): IModelEmpregado;
+    function ListarTodos: IModelEmpregado;
+    function Salvar: IModelEmpregado;
+    function Alterar: IModelEmpregado;
+    function Excluir(AValue: Integer): IModelEmpregado;
   end;
 
 implementation

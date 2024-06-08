@@ -58,6 +58,7 @@ inherited FrmCadastroDepartamento: TFrmCadastroDepartamento
             Top = 30
             Width = 60
             Height = 21
+            Alignment = taRightJustify
             CharCase = ecUpperCase
             Enabled = False
             TabOrder = 0

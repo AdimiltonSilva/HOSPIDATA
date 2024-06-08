@@ -30,6 +30,7 @@ type
       function Local(AValue: string): IModelDepartamento overload;
 
       function BuscarPorId(Avalue: Integer): IModelDepartamento;
+      function BuscarIdPorDepartamento(AValue: string): IModelDepartamento;
       function ListarTodos: IModelDepartamento;
       function Salvar: IModelDepartamento;
       function Alterar: IModelDepartamento;
@@ -94,6 +95,12 @@ function TModelDepartamento.BuscarPorId(Avalue: Integer): IModelDepartamento;
 begin
   Result := Self;
   FDAODepartamento.BuscarPorId(AValue);
+end;
+
+function TModelDepartamento.BuscarIdPorDepartamento(AValue: string): IModelDepartamento;
+begin
+  Result := Self;
+  FDAODepartamento.BuscarIdPorDepartamento(AValue);
 end;
 
 function TModelDepartamento.ListarTodos: IModelDepartamento;

@@ -8,7 +8,7 @@ uses
   Data.DB, Vcl.DBCtrls, Vcl.Grids, Vcl.DBGrids, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
-  FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.Buttons;
 
 type
   TOperacao = (opConsultar, opIncluir, opAlterar, opExcluir, opSalvar, opVincular);
@@ -154,7 +154,10 @@ var
 begin
   for i := 0 to ComponentCount - 1 do
   begin
-    if ( (Components[i] is TEdit) or (Components[i] is TCheckBox) ) then
+    if ( (Components[i] is TEdit) or
+         (Components[i] is TCheckBox) or
+         (Components[i] is TDateTimePicker) or
+         (Components[i] is TComboBox) ) then
       TWinControl(Components[i]).Enabled := estado;
   end;
 

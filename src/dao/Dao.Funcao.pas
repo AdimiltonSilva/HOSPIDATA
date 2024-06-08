@@ -26,6 +26,7 @@ type
 
       class function New(var ADataSource: TDataSource): IDAOFuncao;
       function BuscarPorId(AValue: Integer): IDAOFuncao;
+      function BuscarIdPorFuncao(AValue: string): IDAOFuncao;
       function ListarTodos: IDAOFuncao;
       function Salvar(AFuncao: IModelFuncao): IDAOFuncao;
       function Alterar(AFuncao: IModelFuncao): IDAOFuncao;
@@ -67,6 +68,20 @@ begin
   FDQryFuncao.SQL.Add('  FROM emp_funcoes ef ');
   FDQryFuncao.SQL.Add(' WHERE ef.id_emp_funcao = :id_emp_funcao');
   FDQryFuncao.ParamByName('id_emp_funcao').AsInteger := AValue;
+  FDQryFuncao.Open;
+
+  if FDQryFuncao.IsEmpty then
+    raise Exception.Create('Função não existe.');
+end;
+
+function TDAOFuncao.BuscarIdPorFuncao(AValue: string): IDAOFuncao;
+begin
+  FDQryFuncao.Close;
+  FDQryFuncao.SQL.Clear;
+  FDQryFuncao.SQL.Add('SELECT ef.id_emp_funcao ');
+  FDQryFuncao.SQL.Add('  FROM emp_funcoes ef ');
+  FDQryFuncao.SQL.Add(' WHERE ef.nm_funcao = :nmFuncao');
+  FDQryFuncao.ParamByName('nmFuncao').AsString := AValue;
   FDQryFuncao.Open;
 
   if FDQryFuncao.IsEmpty then
@@ -131,7 +146,7 @@ begin
     FDQryFuncao.Close;
     FDQryFuncao.SQL.Clear;
     FDQryFuncao.SQL.Add('DELETE FROM emp_funcoes ');
-    FDQryFuncao.SQL.Add(' WHERE ef.id_emp_funcao = :id_emp_funcao ');
+    FDQryFuncao.SQL.Add(' WHERE id_emp_funcao = :id_emp_funcao ');
     FDQryFuncao.ParamByName('id_emp_funcao').AsInteger := AValue;
     FDQryFuncao.ExecSQL;
   except on E: Exception do

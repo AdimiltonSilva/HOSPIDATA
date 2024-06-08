@@ -28,6 +28,7 @@ object FrmPrincipal: TFrmPrincipal
     object actEmpregado: TAction
       Category = 'Cadastros'
       Caption = '&Empregado'
+      OnExecute = actEmpregadoExecute
     end
     object actSair: TAction
       Caption = '&Sair'

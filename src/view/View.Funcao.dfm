@@ -1,5 +1,5 @@
 inherited FrmCadastroFuncao: TFrmCadastroFuncao
-  Caption = 'FrmCadastroFuncao'
+  Caption = 'Cadastro de Fun'#231#245'es'
   StyleElements = [seFont, seClient, seBorder]
   TextHeight = 13
   inherited pnlcontainer: TPanel
@@ -59,6 +59,7 @@ inherited FrmCadastroFuncao: TFrmCadastroFuncao
             Top = 30
             Width = 60
             Height = 21
+            Alignment = taRightJustify
             CharCase = ecUpperCase
             Enabled = False
             TabOrder = 1

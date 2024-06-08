@@ -24,6 +24,7 @@ type
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure actFuncaoExecute(Sender: TObject);
+    procedure actEmpregadoExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -36,7 +37,7 @@ var
 implementation
 
 uses
-  View.Departamento, View.Funcao;
+  View.Departamento, View.Funcao, View.Empregado;
 
 
 {$R *.dfm}
@@ -52,6 +53,20 @@ begin
   finally
     if FrmDepartamento <> nil then
       FreeAndNil(FrmDepartamento);
+  end;
+end;
+
+procedure TFrmPrincipal.actEmpregadoExecute(Sender: TObject);
+var
+  FrmEmpregado: TFrmCadastroEmpregado;
+begin
+  FrmEmpregado := TFrmCadastroEmpregado.Create(nil);
+
+  try
+    FrmEmpregado.ShowModal;
+  finally
+    if FrmEmpregado <> nil then
+      FreeAndNil(FrmEmpregado);
   end;
 end;
 
