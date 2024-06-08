@@ -10,8 +10,10 @@ object FrmListagem: TFrmListagem
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  OldCreateOrder = True
   Scaled = False
   WindowState = wsMaximized
+  PixelsPerInch = 96
   TextHeight = 13
   object qrListagem: TQuickRep
     Left = 0
@@ -435,13 +437,13 @@ object FrmListagem: TFrmListagem
       object qrdbtDepartamento: TQRDBText
         Left = 8
         Top = 1
-        Width = 80
+        Width = 190
         Height = 17
         Size.Values = (
           44.979166666666670000
           21.166666666666670000
           2.645833333333333000
-          211.666666666666700000)
+          502.708333333333300000)
         XLColumn = 0
         XLNumFormat = nfGeneral
         ActiveInPreview = False
@@ -467,18 +469,19 @@ object FrmListagem: TFrmListagem
       object qrdbtNome: TQRDBText
         Left = 200
         Top = 1
-        Width = 75
+        Width = 295
         Height = 17
         Size.Values = (
           44.979166666666670000
           529.166666666666700000
           2.645833333333333000
-          198.437500000000000000)
+          780.520833333333300000)
         XLColumn = 0
         XLNumFormat = nfGeneral
         ActiveInPreview = False
         Alignment = taLeftJustify
         AlignToBand = False
+        AutoSize = False
         Color = clWhite
         DataField = 'nm_empregado'
         Font.Charset = DEFAULT_CHARSET
@@ -498,18 +501,19 @@ object FrmListagem: TFrmListagem
       object qrdbtFuncao: TQRDBText
         Left = 500
         Top = 1
-        Width = 55
+        Width = 205
         Height = 17
         Size.Values = (
           44.979166666666670000
           1322.916666666667000000
           2.645833333333333000
-          145.520833333333300000)
+          542.395833333333300000)
         XLColumn = 0
         XLNumFormat = nfGeneral
         ActiveInPreview = False
         Alignment = taLeftJustify
         AlignToBand = False
+        AutoSize = False
         Color = clWhite
         DataField = 'nm_funcao'
         Font.Charset = DEFAULT_CHARSET
@@ -527,5 +531,31 @@ object FrmListagem: TFrmListagem
         FontSize = 8
       end
     end
+  end
+  object qrpdfltr1: TQRPDFFilter
+    CompressionOn = False
+    Fonthandling = False
+    TextEncoding = AnsiEncoding
+    Codepage = '1252'
+    SuppressDateTime = False
+    Left = 392
+    Top = 240
+  end
+  object qrxclfltr1: TQRExcelFilter
+    TextEncoding = DefaultEncoding
+    UseXLColumns = False
+    Left = 440
+    Top = 240
+  end
+  object qrcsvfltr1: TQRCSVFilter
+    Separator = ','
+    TextEncoding = DefaultEncoding
+    Left = 488
+    Top = 240
+  end
+  object qrtxtfltr1: TQRTextFilter
+    TextEncoding = DefaultEncoding
+    Left = 536
+    Top = 240
   end
 end
