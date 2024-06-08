@@ -86,6 +86,8 @@ A estrutura sugerida para o projeto é a seguinte: <br/>
 │   └── README.md # Este arquivo 
 └── /sql # Scripts SQL para criação do banco de dados 
     └── create_database.sql 
+└── /bin # DLLs do PostgreSQL 
+    └── libpq.dll 
 ```
 ## Licença
 

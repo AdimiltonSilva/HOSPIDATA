@@ -558,4 +558,11 @@ object FrmListagem: TFrmListagem
     Left = 536
     Top = 240
   end
+  object qrxlsxfltr1: TQRXLSXFilter
+    WorkSheetname = 'Untitled Sheet'
+    SheetLeftMargin = 1
+    QR506Compat = False
+    Left = 392
+    Top = 296
+  end
 end

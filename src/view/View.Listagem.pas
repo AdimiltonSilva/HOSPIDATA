@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, QRCtrls, QuickRpt, QRExport, QRPDFFilt;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, QRCtrls, QuickRpt, QRExport, QRPDFFilt, QRNewXLSXFilt;
 
 type
   TFrmListagem = class(TForm)
@@ -30,6 +30,7 @@ type
     qrxclfltr1: TQRExcelFilter;
     qrcsvfltr1: TQRCSVFilter;
     qrtxtfltr1: TQRTextFilter;
+    qrxlsxfltr1: TQRXLSXFilter;
     procedure QRSysData3Print(sender: TObject; var Value: string);
     procedure QRSysData4Print(sender: TObject; var Value: string);
   private
