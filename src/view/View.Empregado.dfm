@@ -158,6 +158,9 @@ inherited FrmCadastroEmpregado: TFrmCadastroEmpregado
     inherited btnExcluir: TButton
       OnClick = btnExcluirClick
     end
+    inherited btnImprimir: TButton
+      OnClick = btnImprimirClick
+    end
   end
   inherited dsConsultar: TDataSource
     OnDataChange = dsConsultarDataChange

@@ -19,7 +19,8 @@ uses
   Dao.Empregado in 'src\dao\Dao.Empregado.pas',
   Controller.Empregado in 'src\controller\Controller.Empregado.pas',
   Model.Empregado in 'src\model\Model.Empregado.pas',
-  View.Empregado in 'src\view\View.Empregado.pas' {FrmCadastroEmpregado};
+  View.Empregado in 'src\view\View.Empregado.pas' {FrmCadastroEmpregado},
+  View.Listagem in 'src\view\View.Listagem.pas' {FrmListagem};
 
 {$R *.res}
 

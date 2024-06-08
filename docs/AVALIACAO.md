@@ -59,8 +59,8 @@ SELECT nm_empregado, data_admissao
     SELECT cod_departamento
     FROM empregados
     WHERE nm_empregado = 'MARCELO'
-);
-   AND nm_empregado <> 'MARCELO';
+    )
+    AND nm_empregado <> 'MARCELO';
 ```
 
 11. Escreva uma consulta que mostre o número do empregado e o nome para todos os empregados que trabalham em um departamento com qualquer empregado cujo nome contenha uma letra "T".

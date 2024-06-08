@@ -82,7 +82,7 @@ A estrutura sugerida para o projeto é a seguinte: <br/>
 │       └── Controller.Empregado.pas
 ├── /docs # Documentação do projeto 
 │   ├── LICENSE
-│   ├── Avaliacao.txt
+│   ├── AVALIACAO.md
 │   └── README.md # Este arquivo 
 └── /sql # Scripts SQL para criação do banco de dados 
     └── create_database.sql 

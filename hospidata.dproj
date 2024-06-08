@@ -162,6 +162,10 @@
             <Form>FrmCadastroEmpregado</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="src\view\View.Listagem.pas">
+            <Form>FrmListagem</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

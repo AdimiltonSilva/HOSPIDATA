@@ -38,6 +38,7 @@ type
     procedure edtComissaoExit(Sender: TObject);
     procedure dsConsultarDataChange(Sender: TObject; Field: TField);
     procedure btnPesquisarClick(Sender: TObject);
+    procedure btnImprimirClick(Sender: TObject);
   private
     { Private declarations }
     FControllerEmpregado: IControllerEmpregado;
@@ -56,6 +57,8 @@ var
 implementation
 
 {$R *.dfm}
+
+uses View.Listagem;
 
 procedure TFrmCadastroEmpregado.FormCreate(Sender: TObject);
 begin
@@ -225,8 +228,28 @@ begin
   inherited;
 end;
 
-procedure TFrmCadastroEmpregado.dsConsultarDataChange(Sender: TObject;
-  Field: TField);
+procedure TFrmCadastroEmpregado.btnImprimirClick(Sender: TObject);
+var
+  FrmListagem: TFrmListagem;
+begin
+  inherited;
+
+  FrmListagem := TFrmListagem.Create(nil);
+
+  try
+    FrmListagem.qrListagem.DataSet := dsConsultar.DataSet;
+    FrmListagem.qrdbtDepartamento.DataSet := dsConsultar.DataSet;
+    FrmListagem.qrdbtNome.DataSet := dsConsultar.DataSet;
+    FrmListagem.qrdbtFuncao.DataSet := dsConsultar.DataSet;
+
+    FrmListagem.qrListagem.Preview;
+  finally
+    if FrmListagem <> nil then
+      FreeAndNil(FrmListagem);
+  end;
+end;
+
+procedure TFrmCadastroEmpregado.dsConsultarDataChange(Sender: TObject; Field: TField);
 begin
   inherited;
 
